@@ -5,83 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique : IA et Handicap</title>
     <style>
-        /* Styles de base pour l'accessibilité */
+        /* Styles de base et design soigné */
         :root {
-            --bg-color: #f9f9f9;
-            --text-color: #222;
-            --card-bg: #fff;
-            --primary-color: #0056b3;
-            --border-color: #ccc;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --border-color: #e2e8f0;
             --font-size: 16px;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
         }
 
         body.high-contrast {
-            --bg-color: #000;
-            --text-color: #fff;
-            --card-bg: #111;
-            --primary-color: #ff0;
-            --border-color: #fff;
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --card-bg: #121212;
+            --primary-color: #ffff00;
+            --primary-hover: #e6e600;
+            --border-color: #ffffff;
+            --shadow: none;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-size: var(--font-size);
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
 
+        /* En-tête avec un fond élégant */
         header {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+
+        body.high-contrast header {
+            background: #000000;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        /* Barre d'accessibilité flottante */
+        .accessibility-bar {
+            background: var(--card-bg);
+            max-width: 700px;
+            margin: -20px auto 30px auto;
+            padding: 12px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .accessibility-bar span {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .accessibility-bar button {
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            margin: 4px;
+            cursor: pointer;
+            font-size: 0.95em;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .accessibility-bar button:hover {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        .accessibility-bar button:focus {
+            outline: 3px solid #f59e0b;
+            outline-offset: 2px;
+        }
+
+        /* Filtres centrés */
+        .filters {
             text-align: center;
             margin-bottom: 30px;
         }
 
-        /* Barre d'accessibilité en haut */
-        .accessibility-bar {
-            background: #e9ecef;
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid var(--border-color);
-        }
-
-        .accessibility-bar button {
-            background: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            margin: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            border-radius: 4px;
-        }
-
-        .accessibility-bar button:focus {
-            outline: 3px solid #ff9900;
-        }
-
-        /* Filtres */
-        .filters {
-            text-align: center;
-            margin-bottom: 20px;
+        .filters label {
+            font-weight: 600;
+            margin-right: 8px;
         }
 
         .filters select {
-            padding: 8px;
+            padding: 10px 15px;
             font-size: 1em;
-            margin: 5px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: var(--shadow);
         }
 
         /* Grille des articles */
+        main {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
         .article-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .article-card h2 {
+            margin-top: 0;
+            font-size: 1.4em;
         }
 
         .article-card h2 a {
@@ -91,17 +161,18 @@
 
         .article-card h2 a:hover, .article-card h2 a:focus {
             text-decoration: underline;
-            outline: 3px solid #ff9900;
+            outline: 3px solid #f59e0b;
         }
 
         .tag {
             display: inline-block;
-            background: #e2e8f0;
-            color: #333;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            margin-right: 5px;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 6px;
         }
 
         body.high-contrast .tag {
@@ -111,26 +182,39 @@
         }
 
         .simple-version {
-            background: #e6f4ea;
-            border-left: 4px solid #34a853;
-            padding: 10px;
-            margin-top: 10px;
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
             display: none;
         }
 
         body.high-contrast .simple-version {
-            background: #003300;
+            background: #002200;
             border-left: 4px solid #00ff00;
         }
 
         button.toggle-simple {
-            background: #28a745;
+            background: #16a34a;
             color: white;
             border: none;
-            padding: 6px 10px;
-            margin-top: 10px;
+            padding: 8px 14px;
+            margin-top: 12px;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        button.toggle-simple:hover {
+            background: #15803d;
+        }
+
+        button.toggle-simple:focus {
+            outline: 3px solid #f59e0b;
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -195,8 +279,343 @@
                 carte.className = 'article-card';
                 carte.innerHTML = `
                     <h2><a href="${article.lien}" target="_blank">${article.titre}</a></h2>
-                    <p><strong>Source :</strong> ${article.source} | <strong>Date :</strong> ${article.date} | <strong>Note :</strong> ${article.note}</p>
-                    <div>
+                    <p style="font-size: 0.9em; color: #64748b;"><strong>Source :</strong> ${article.source} | <strong>Date :</strong> ${article.date} | <strong>Note :</strong> ${article.note}</p>
+                    <div class="tags-container">
+                        <span class="tag">Handicap : ${article.handicap}</span>
+                        <span class="tag">Maturité : ${article.maturite}</span>
+                    </div>
+                    <p style="margin-top: 15px;">${article.resume}</p>
+                    <p><strong>Pourquoi c'est important :</strong> ${article.important}</p>
+                    <button class="toggle-simple" onclick="basculerVersionSimple(${index})">Afficher / Masquer la version simple (FALC)</button>
+                    <div id="simple-${index}" class="simple-version">
+                        <p><strong>Version simple :</strong> ${article.version_simple}</p>
+                    </div>
+                `;
+                conteneur.appendChild(carte);
+            });
+        }
+
+        // 3. Fonction pour filtrer selon le choix
+        function filtrerArticles() {
+            const choix = document.getElementById('filtre-handicap').value;
+            if (choix === 'tous') {
+                afficherArticles(tousLesArticles);
+            } else {
+                const articlesFiltres = tousLesArticles.filter(a => a.handicap === choix);
+                afficherArticles(articlesFiltres);
+            }
+        }
+
+        // 4. Fonction pour afficher/cacher la version simple
+        function basculerVersionSimple(index) {
+            const bloc = document.getElementById(`simple-${index}`);
+            if (bloc.style.display === 'block') {
+                bloc.style.display = 'none';
+            } else {
+                bloc.style.display = 'block';
+            }
+        }
+
+        // 5. Accessibilité : Agrandir / Réduire le texte
+        let tailleActuelle = 16;
+        function changerTaille(sens) {
+            if (sens === 'plus' && tailleActuelle < 24) {
+                tailleActuelle += 2;
+            } else if (sens === 'moins' && tailleActuelle > 12) {
+                tailleActuelle -= 2;
+            }
+            document.documentElement.style.setProperty('--font-size', tailleActuelle + 'px');
+        }
+
+        // 6. Accessibilité : Fort contraste
+        function alternerContraste() {
+            document.body.classList.toggle('high-contrast');
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique : IA et Handicap</title>
+    <style>
+        /* Styles de base et design soigné */
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --border-color: #e2e8f0;
+            --font-size: 16px;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+        }
+
+        body.high-contrast {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --card-bg: #121212;
+            --primary-color: #ffff00;
+            --primary-hover: #e6e600;
+            --border-color: #ffffff;
+            --shadow: none;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: var(--font-size);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* En-tête avec un fond élégant */
+        header {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+
+        body.high-contrast header {
+            background: #000000;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        /* Barre d'accessibilité flottante */
+        .accessibility-bar {
+            background: var(--card-bg);
+            max-width: 700px;
+            margin: -20px auto 30px auto;
+            padding: 12px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .accessibility-bar span {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .accessibility-bar button {
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            margin: 4px;
+            cursor: pointer;
+            font-size: 0.95em;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .accessibility-bar button:hover {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        .accessibility-bar button:focus {
+            outline: 3px solid #f59e0b;
+            outline-offset: 2px;
+        }
+
+        /* Filtres centrés */
+        .filters {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filters label {
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .filters select {
+            padding: 10px 15px;
+            font-size: 1em;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: var(--shadow);
+        }
+
+        /* Grille des articles */
+        main {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .article-card h2 {
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+
+        .article-card h2 a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .article-card h2 a:hover, .article-card h2 a:focus {
+            text-decoration: underline;
+            outline: 3px solid #f59e0b;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        body.high-contrast .tag {
+            background: #333;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .simple-version {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+            display: none;
+        }
+
+        body.high-contrast .simple-version {
+            background: #002200;
+            border-left: 4px solid #00ff00;
+        }
+
+        button.toggle-simple {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            margin-top: 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        button.toggle-simple:hover {
+            background: #15803d;
+        }
+
+        button.toggle-simple:focus {
+            outline: 3px solid #f59e0b;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre d'accessibilité pour les réglages -->
+    <div class="accessibility-bar" role="region" aria-label="Paramètres d'accessibilité">
+        <span>Accessibilité : </span>
+        <button onclick="changerTaille('plus')">Agrandir le texte</button>
+        <button onclick="changerTaille('moins')">Réduire le texte</button>
+        <button onclick="alternerContraste()">Activer/Désactiver le fort contraste</button>
+    </div>
+
+    <header>
+        <h1>Journal de Veille : IA et Handicap</h1>
+        <p>Les actualités quotidiennes sur l'intelligence artificielle au service de la compensation du handicap.</p>
+    </header>
+
+    <!-- Zone de filtres -->
+    <div class="filters">
+        <label for="filtre-handicap">Filtrer par handicap : </label>
+        <select id="filtre-handicap" onchange="filtrerArticles()">
+            <option value="tous">Tous les handicaps</option>
+            <option value="visuel">Visuel</option>
+            <option value="auditif">Auditif</option>
+            <option value="moteur">Moteur</option>
+        </select>
+    </div>
+
+    <!-- Conteneur où les articles vont s'afficher tout seul -->
+    <main id="liste-articles" tabindex="0">
+        <p>Chargement des articles en cours...</p>
+    </main>
+
+    <script>
+        let tousLesArticles = [];
+
+        // 1. Charger le fichier data.json automatiquement
+        fetch('data.json')
+            .then(reponse => reponse.json())
+            .then(donnees => {
+                tousLesArticles = donnees;
+                afficherArticles(tousLesArticles);
+            })
+            .catch(erreur => {
+                console.error("Erreur de chargement :", erreur);
+                document.getElementById('liste-articles').innerHTML = "<p>Erreur : impossible de charger les articles.</p>";
+            });
+
+        // 2. Afficher les articles sur la page
+        function afficherArticles(articles) {
+            const conteneur = document.getElementById('liste-articles');
+            conteneur.innerHTML = "";
+
+            if (articles.length === 0) {
+                conteneur.innerHTML = "<p>Aucun article ne correspond à ce filtre.</p>";
+                return;
+            }
+
+            articles.forEach((article, index) => {
+                const carte = document.createElement('article');
+                carte.className = 'article-card';
+                carte.innerHTML = `
+                    <h2><a href="${article.lien}" target="_blank">${article.titre}</a></h2>
+                    <p style="font-size: 0.9em; color: #64748b;"><strong>Source :</strong> ${article.source} | <strong>Date :</strong> ${article.date} | <strong>Note :</strong> ${article.note}</p>
+                    <div class="tags-container">
                         <span class="tag">Handicap : ${article.handicap}</span>
                         <span class="tag">Maturité : ${article.maturite}</span>
                     </div>
