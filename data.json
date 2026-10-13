@@ -1,0 +1,38 @@
+[
+  {
+    "titre": "Une application mobile guide les personnes malvoyantes grâce à l'IA",
+    "source": "Handicap Info",
+    "date": "2026-10-12",
+    "lien": "https://example.com/article1",
+    "handicap": "visuel",
+    "maturite": "produit disponible",
+    "note": "8/10",
+    "resume": "Une nouvelle application utilise la caméra du téléphone pour décrire à voix haute l'environnement des personnes malvoyantes en temps réel. Elle signale les obstacles et lit les panneaux de rue.",
+    "important": "Cela permet aux personnes aveugles de se déplacer de manière beaucoup plus autonome dans la rue.",
+    "version_simple": "Une application aide les aveugles à marcher dehors en parlant pour décrire ce qu'il y a devant eux."
+  },
+  {
+    "titre": "Des lunettes connectées traduisent la langue des signes en voix",
+    "source": "Tech & Inclusion",
+    "date": "2026-10-11",
+    "lien": "https://example.com/article2",
+    "handicap": "auditif",
+    "maturite": "prototype",
+    "note": "7/10",
+    "resume": "Ces lunettes intelligentes captent les mouvements des mains en langue des signes et les transforment instantanément en phrases prononcées par un haut-parleur.",
+    "important": "Elles facilitent grandement la communication directe entre une personne sourde et une personne entendant ne connaissant pas la langue des signes.",
+    "version_simple": "Des lunettes transforment les gestes des mains en vraie voix pour parler avec tout le monde."
+  },
+  {
+    "titre": "Un fauteuil roulant autonome guidé par la pensée",
+    "source": "Innovations Santé",
+    "date": "2026-10-10",
+    "lien": "https://example.com/article3",
+    "handicap": "moteur",
+    "maturite": "recherche",
+    "note": "9/10",
+    "resume": "Des chercheurs ont testé un casque qui lit l'activité cérébrale pour diriger un fauteuil roulant électrique sans utiliser les mains ni un joystick.",
+    "important": "C'est une révolution pour les personnes ayant une mobilité totalement réduite des membres supérieurs et inférieurs.",
+    "version_simple": "Un casque permet de conduire un fauteuil roulant rien qu'en y pensant avec sa tête."
+  }
+]
